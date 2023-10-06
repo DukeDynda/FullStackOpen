@@ -1,5 +1,192 @@
-/* Exercise 1.2 Refactored */
+/* Exercise 1.5 */
 const App = () => {
+  const course = {
+    name: 'Half Stack application development',
+    parts: [
+      {
+        name: 'Fundamentals of React',
+        exercises: 10
+      },
+      {
+        name: 'Using props to pass data',
+        exercises: 7
+      },
+      {
+        name: 'State of a component',
+        exercises: 14
+      }
+    ]
+  }
+
+  return (
+    <div>
+      <Header course={course.name} />
+      <Content parts={course.parts} />
+      <Total parts={course.parts} />
+    </div>
+  )
+}
+
+const Header = ({course}) => {
+  return (
+    <h1>{course}</h1>
+  )
+}
+
+const Content = ({parts}) => {
+  return (
+    <div>
+      {parts.map((part, index) => (
+        <Part key={index} partName={part.name} exercises={part.exercises} />
+      ))}
+    </div>
+  )
+}
+
+const Part = ({partName, exercises}) => {
+  return (
+    <p>{partName} {exercises}</p>
+  )
+}
+
+const Total = ({parts}) => {
+  var total = 0
+  parts.forEach(part => {
+    total += part.exercises
+  })
+  return (
+    <p>Number of exercises {total}</p>
+  )
+}
+
+export default App
+
+/****************/
+/* Exercise 1.4 */
+/****************/
+
+/* const App = () => {
+  const course = 'Half Stack application development'
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component',
+      exercises: 14
+    }
+  ]
+
+  return (
+    <div>
+      <Header course={course} />
+      <Content parts={parts} />
+      <Total parts={parts} />
+    </div>
+  )
+}
+
+const Header = ({course}) => {
+  return (
+    <h1>{course}</h1>
+  )
+}
+
+const Content = ({parts}) => {
+  return (
+    <div>
+      {parts.map((part, index) => (
+        <Part key={index} partName={part.name} exercises={part.exercises} />
+      ))}
+    </div>
+  )
+}
+
+const Part = ({partName, exercises}) => {
+  return (
+    <p>{partName} {exercises}</p>
+  )
+}
+
+const Total = ({parts}) => {
+  var total = 0
+  parts.forEach(part => {
+    total += part.exercises
+  })
+  return (
+    <p>Number of exercises {total}</p>
+  )
+}
+
+export default App */
+
+/* Exercise 1.3 */
+/* const App = () => {
+  const course = 'Half Stack application development'
+  const part1 = {
+    name: 'Fundamentals of React',
+    exercises: 10
+  }
+  const part2 = {
+    name: 'Using props to pass data',
+    exercises: 7
+  }
+  const part3 = {
+    name: 'State of a component',
+    exercises: 14
+  }
+
+  return (
+    <div>
+      <Header courseName={course} />
+      <Content parts={[part1, part2, part3]} />
+      <Total parts={[part1, part2, part3]} />
+    </div>
+  )
+}
+
+const Header = ({courseName}) => {
+return (
+    <h1>{courseName}</h1>
+)
+}
+
+const Content = ({parts}) => {
+return (
+  <div>
+    {parts.map((part, index) => (
+      <Part key={index} partName={part.name} exercises={part.exercises} />
+    ))}
+  </div>
+)
+}
+
+const Part = ({partName, exercises}) => {
+return (
+  <p>{partName} {exercises}</p>
+)
+}
+
+const Total = ({parts}) => {
+var total = 0
+parts.forEach(part => {
+  total += part.exercises
+})
+return (
+  <p>Number of exercises {total}</p>
+)
+}
+
+export default App */
+
+/* Exercise 1.2 Refactored */
+/* Didn't realize a lot of these concepts I used to refactor are used at later part of the course */
+/* const App = () => {
   const course = {
     courseName: 'Half Stack application development',
     parts: [
@@ -59,7 +246,7 @@ const Total = ({parts}) => {
   )
 }
 
-export default App
+export default App */
 
 /********************************/
 /* Exercise 1.2 more refactored */
